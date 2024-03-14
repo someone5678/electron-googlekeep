@@ -10,8 +10,6 @@ async function createWindow() {
   });
 
   const mainWindow = new BrowserWindow({
-    x: mainWindowState.x,
-    y: mainWindowState.y,
     width: mainWindowState.width,
     height: mainWindowState.height,
     minWidth: 500,

@@ -1,11 +1,19 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const { shell } = require('electron')
+const windowStateKeeper = require('electron-window-state');
 
 async function createWindow() {
+  let mainWindowState = windowStateKeeper({
+    defaultWidth: 1280,
+    defaultHeight: 800
+  });
+
   const mainWindow = new BrowserWindow({
-    width: 1280,
-    height: 800,
+    x: mainWindowState.x,
+    y: mainWindowState.y,
+    width: mainWindowState.width,
+    height: mainWindowState.height,
     minWidth: 500,
     minHeight: 550,
     fullscreen: false,
@@ -29,6 +37,7 @@ async function createWindow() {
     shell.openExternal(url);
     return { action: 'deny' };
   });
+  mainWindowState.manage(mainWindow);
 }
 
 app.whenReady().then(() => {

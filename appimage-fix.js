@@ -2,7 +2,7 @@ const child_process = require('child_process'),
     fs = require('fs'),
     path = require('path');
 
-const appName = "youtubecouchui";
+const appName = "googlekeep";
 
 function isLinux (targets) {
     const re = /AppImage|snap|deb|rpm|freebsd|pacman/i;

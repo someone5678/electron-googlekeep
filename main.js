@@ -1,34 +1,33 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
-const { ElectronBlocker, fullLists, Request } = require('@cliqz/adblocker-electron');
-const fetch = require('cross-fetch');
-const { readFileSync, writeFileSync } = require('fs');
+const { shell } = require('electron')
 
 async function createWindow() {
   const mainWindow = new BrowserWindow({
-    width: 1280,
-    height: 800,
-    fullscreen: true,
-    resizable: false,
-    frame: false,
-    kiosk: true,
-    title: "Youtube",
+    width: 500,
+    height: 550,
+    fullscreen: false,
+    resizable: true,
+    frame: true,
+    kiosk: false,
+    title: "Google Keep",
     backgroundColor: "#282828",
-    icon: path.join(__dirname, 'youtube.ico'),
+    icon: path.join(__dirname, 'icon.png'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      devTools: false
+      devTools: true
     }
   });
-  const blocker = await ElectronBlocker.fromPrebuiltAdsOnly(
-    fetch
-  );
-  blocker.enableBlockingInSession(mainWindow.webContents.session);
 
-  mainWindow.webContents.userAgent = "Mozilla/5.0 (PlayStation; PlayStation 4/9.51) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Safari/605.1.15";
-  mainWindow.loadURL('http://www.youtube.com/tv/');
+  mainWindow.webContents.userAgent = 'Chrome';
+  mainWindow.loadURL('https://keep.google.com/');
+  mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+    shell.openExternal(url);
+    return { action: 'deny' };
+  });
 }
+
 app.whenReady().then(() => {
   createWindow()
 

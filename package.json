@@ -1,14 +1,14 @@
 {
-  "name": "youtubecouchui",
+  "name": "googlekeep",
   "version": "1.0.0",
-  "description": "YouTube \"for TVs\" UI on an Electron Wrapper",
+  "description": "Google Keep",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build:linux",
     "build:linux": "electron-builder --linux --x64"
   },
-  "author": "DaBluLite",
+  "author": "someone5678",
   "license": "ISC",
   "dependencies": {
     "@cliqz/adblocker-electron": "^1.25.1",
@@ -21,23 +21,18 @@
     "electron-builder": "^24.4.0"
   },
   "build": {
-    "productName": "YouTube TV",
-    "appId": "org.aquafinix.youtubetvui",
-    "artifactName": "YouTubeTVUI.${ext}",
+    "productName": "Google Keep",
+    "appId": "com.google.keep",
+    "artifactName": "googlekeep.${ext}",
     "afterPack": "./appimage-fix.js",
     "directories": {
       "output": "dists"
     },
-    "win": {
-      "target": "portable",
-      "icon": "./res/youtube.ico",
-      "publisherName": "DaBluLite"
-    },
     "linux": {
       "target": "AppImage",
-      "icon": "./res/youtube.icns",
-      "category": "Video",
-      "packageCategory": "Video"
+      "icon": "./res/icon.png",
+      "category": "Internet",
+      "packageCategory": "Internet"
     }
   }
 }

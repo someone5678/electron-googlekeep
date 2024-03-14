@@ -3,6 +3,11 @@ const path = require('path');
 const { shell } = require('electron')
 const windowStateKeeper = require('electron-window-state');
 
+// Static folder is not detected correctly in production
+if (process.env.NODE_ENV !== 'development') {
+  global.__static = require('path').join(__dirname, '/static').replace(/\\/g, '\\\\');
+}
+
 async function createWindow() {
   let mainWindowState = windowStateKeeper({
     defaultWidth: 1280,
@@ -21,7 +26,7 @@ async function createWindow() {
     title: "Google Keep",
     autoHideMenuBar: true,
     backgroundColor: "#282828",
-    icon: path.join(__dirname, 'icon.png'),
+    icon: path.join(global.__static, 'icons/icon-48x48.png'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,

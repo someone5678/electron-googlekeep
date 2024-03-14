@@ -11,6 +11,7 @@ async function createWindow() {
     frame: true,
     kiosk: false,
     title: "Google Keep",
+    autoHideMenuBar: true,
     backgroundColor: "#282828",
     icon: path.join(__dirname, 'icon.png'),
     webPreferences: {

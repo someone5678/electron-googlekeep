@@ -4,8 +4,10 @@ const { shell } = require('electron')
 
 async function createWindow() {
   const mainWindow = new BrowserWindow({
-    width: 500,
-    height: 550,
+    width: 1280,
+    height: 800,
+    minWidth: 500,
+    minHeight: 550,
     fullscreen: false,
     resizable: true,
     frame: true,

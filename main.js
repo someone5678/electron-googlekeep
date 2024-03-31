@@ -28,7 +28,7 @@ async function createWindow() {
     kiosk: false,
     title: "Twitter",
     autoHideMenuBar: true,
-    backgroundColor: "#282828",
+    backgroundColor: "#000000",
     icon: path.join(global.__static, 'icons/icon-48x48.png'),
     webPreferences: {
       nodeIntegration: true,

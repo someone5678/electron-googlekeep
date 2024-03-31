@@ -1,5 +1,5 @@
-# Google Keep
-Unofficial Google Keep client using Electron<br>
+# Twitter
+Unofficial Twitter client using Electron<br>
 Based on [DaBluLite](https://github.com/DaBluLite)'s [YouTube TV/Couch UI client](https://github.com/DaBluLite/YoutubeTVUI) for Windows and Linux.
 
 ## Installing Modules

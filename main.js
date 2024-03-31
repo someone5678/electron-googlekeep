@@ -1,5 +1,8 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
+const { ElectronBlocker, fullLists, Request } = require('@cliqz/adblocker-electron');
+const fetch = require('cross-fetch');
+const { readFileSync, writeFileSync } = require('fs');
 const { shell } = require('electron')
 const windowStateKeeper = require('electron-window-state');
 
@@ -23,7 +26,7 @@ async function createWindow() {
     resizable: true,
     frame: true,
     kiosk: false,
-    title: "Google Keep",
+    title: "Twitter",
     autoHideMenuBar: true,
     backgroundColor: "#282828",
     icon: path.join(global.__static, 'icons/icon-48x48.png'),
@@ -34,8 +37,12 @@ async function createWindow() {
     }
   });
 
-  mainWindow.webContents.userAgent = 'Chrome';
-  mainWindow.loadURL('https://keep.google.com/');
+  const blocker = await ElectronBlocker.fromPrebuiltAdsOnly(
+    fetch
+  );
+  blocker.enableBlockingInSession(mainWindow.webContents.session);
+  mainWindow.webContents.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.92 Safari/537.36";
+  mainWindow.loadURL('https://twitter.com/');
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
     return { action: 'deny' };

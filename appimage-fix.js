@@ -2,7 +2,7 @@ const child_process = require('child_process'),
     fs = require('fs'),
     path = require('path');
 
-const appName = "googlekeep";
+const appName = "twitter";
 
 function isLinux (targets) {
     const re = /AppImage|snap|deb|rpm|freebsd|pacman/i;

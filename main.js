@@ -35,7 +35,7 @@ async function createWindow() {
   });
 
   mainWindow.webContents.userAgent = 'Chrome';
-  mainWindow.loadURL('https://calendar.google.com/u/0/r/tasks/');
+  mainWindow.loadURL('https://tasks.google.com/');
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
     return { action: 'deny' };

@@ -1,7 +1,7 @@
 {
-  "name": "googlekeep",
+  "name": "googletasks",
   "version": "1.0.0",
-  "description": "Google Keep",
+  "description": "Google Tasks",
   "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,9 +22,9 @@
     "electron-builder": "^24.4.0"
   },
   "build": {
-    "productName": "Google Keep",
-    "appId": "com.google.keep",
-    "artifactName": "googlekeep.${ext}",
+    "productName": "Google Tasks",
+    "appId": "com.google.tasks",
+    "artifactName": "googletasks.${ext}",
     "afterPack": "./appimage-fix.js",
     "directories": {
       "output": "dists"

@@ -23,7 +23,7 @@ async function createWindow() {
     resizable: true,
     frame: true,
     kiosk: false,
-    title: "Google Keep",
+    title: "Google Tasks",
     autoHideMenuBar: true,
     backgroundColor: "#282828",
     icon: path.join(global.__static, 'icons/icon-48x48.png'),
@@ -35,7 +35,7 @@ async function createWindow() {
   });
 
   mainWindow.webContents.userAgent = 'Chrome';
-  mainWindow.loadURL('https://keep.google.com/');
+  mainWindow.loadURL('https://calendar.google.com/u/0/r/tasks/');
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
     return { action: 'deny' };
